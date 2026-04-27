@@ -1,0 +1,66 @@
+{% extends "core/base.html" %}
+
+{% block title %}Projetos - Meu Portfólio{% endblock %}
+
+{% block header_title %}Meus Projetos{% endblock %}
+
+{% block extra_css %}
+.projeto-card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-left: 4px solid #2E2A5E;
+}
+.projeto-card h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+.projeto-card p {
+    color: #555;
+    margin-bottom: 10px;
+}
+.projeto-card .tipo {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    color: white;
+    margin-bottom: 10px;
+}
+.tipo-pessoal {
+    background-color: #483D8B;
+}
+.tipo-disciplina {
+    background-color: #483D8B;
+}
+.projeto-card a {
+    color: #483D8B;
+    text-decoration: none;
+}
+.projeto-card a:hover {
+    text-decoration: underline;
+}
+{% endblock %}
+
+{% block content %}
+    {% for projeto in projetos %}
+        <div class="projeto-card">
+            <span class="tipo tipo-{{ projeto.tipo|lower }}">
+                {{ projeto.tipo }}
+            </span>
+
+            <h3>{{ projeto.nome }}</h3>
+            <p>{{ projeto.descricao }}</p>
+
+            <a href="{{ projeto.git }}" target="_blank">
+                Ver no GitHub: {{ projeto.git }}
+            </a>
+        </div>
+    {% empty %}
+        <div class="projeto-card">
+            <h3>Nenhum projeto cadastrado</h3>
+        </div>
+    {% endfor %}
+{% endblock %}

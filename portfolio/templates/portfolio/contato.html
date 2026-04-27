@@ -1,0 +1,13 @@
+{% extends "core/base.html" %}
+
+{% block title %} Contato {% endblock %}
+
+{% block header_title %}Contato - {{pessoal.nome}} {% endblock %}
+
+{% block content %}
+<p>Fique à vontade para entrar em contato comigo através dos canais abaixo!</p>
+<br>
+<li><strong>E-mail:</strong> {{pessoal.email}}</li>
+<li><strong>LinkedIn:</strong> <a href="{{pessoal.linked}}">{{pessoal.linked}}</a></li>
+<li><strong>GitHub:</strong> <a href="{{pessoal.git}}">{{pessoal.git}}</a></li>
+{% endblock %}
