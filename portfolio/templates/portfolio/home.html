@@ -7,118 +7,127 @@
 {% block header_title %}{{pessoal.nome}}{% endblock %}
 
 {% block extra_css %}
-body {
-    position: relative;
-}
+<style>
+    body {
+        position: relative;
+    }
 
-body::before {
-    content: "";
-    position: fixed;
+    body::before {
+        content: "";
+        position: fixed;
 
-    width: 700px;
-    height: 700px;
+        width: 700px;
+        height: 700px;
 
-    background: #A78BFA;
-    border-radius: 50%;
+        background: #A78BFA;
+        border-radius: 50%;
 
-    filter: blur(180px);
+        filter: blur(180px);
 
-    opacity: 0.3;
+        opacity: 0.3;
 
-    top: -200px;
-    right: -200px;
+        top: -200px;
+        right: -200px;
 
-    z-index: 0;
-    pointer-events: none;
-}
+        z-index: 0;
+        pointer-events: none;
+    }
 
-.container,
-header,
-nav,
-footer {
-    position: relative;
-    z-index: 1;
-}
+    .container,
+    header,
+    nav,
+    footer {
+        position: relative;
+        z-index: 1;
+    }
 
-.perfil {
-    text-align: center;
-    margin-bottom: 30px;
-}
-.perfil img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
+    .perfil {
+        text-align: center;
+        margin-bottom: 30px;
+    }
 
-    border: 4px solid #A78BFA;
+    .perfil img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
 
-    box-shadow:
-        0 0 15px rgba(167, 139, 250, 0.5),
-        0 0 35px rgba(167, 139, 250, 0.3);
+        border: 4px solid #A78BFA;
 
-    transition: 0.3s;
-}
+        box-shadow:
+            0 0 15px rgba(167, 139, 250, 0.5),
+            0 0 35px rgba(167, 139, 250, 0.3);
 
-.perfil img:hover {
-    transform: scale(1.05);
+        transition: 0.3s;
+    }
 
-    box-shadow:
-        0 0 25px rgba(167, 139, 250, 0.8),
-        0 0 50px rgba(167, 139, 250, 0.4);
-}
-.perfil h2 {
-    margin-bottom: 5px;
-}
-.perfil p {
-    color: #A78BFA;
-}
-.sobre {
-    background: white;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 12px;
+    .perfil img:hover {
+        transform: scale(1.05);
 
-    transition: all 0.3s ease;
+        box-shadow:
+            0 0 25px rgba(167, 139, 250, 0.8),
+            0 0 50px rgba(167, 139, 250, 0.4);
+    }
 
-    box-shadow:
-        0 0 10px rgba(167, 139, 250, 0.15),
-        0 0 20px rgba(167, 139, 250, 0.08);
-}
+    .perfil h2 {
+        margin-bottom: 5px;
+    }
 
-.sobre:hover {
-    transform: translateY(-5px);
+    .perfil p {
+        color: #A78BFA;
+    }
 
-    box-shadow:
-        0 0 20px rgba(167, 139, 250, 0.4),
-        0 0 40px rgba(167, 139, 250, 0.2);
-}
+    .sobre {
+        background: white;
+        padding: 25px;
+        margin-bottom: 20px;
+        border-radius: 12px;
 
-.sobre h3 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #A78BFA;
-    padding-bottom: 8px;
-}
-.sobre ul {
-    list-style: none;
-    padding: 0;
-}
-.sobre ul li {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-}
-.sobre ul li:last-child {
-    border-bottom: none;
-}
+        transition: all 0.3s ease;
+
+        box-shadow:
+            0 0 10px rgba(167, 139, 250, 0.15),
+            0 0 20px rgba(167, 139, 250, 0.08);
+    }
+
+    .sobre:hover {
+        transform: translateY(-5px);
+
+        box-shadow:
+            0 0 20px rgba(167, 139, 250, 0.4),
+            0 0 40px rgba(167, 139, 250, 0.2);
+    }
+
+    .sobre h3 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #A78BFA;
+        padding-bottom: 8px;
+    }
+
+    .sobre ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sobre ul li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .sobre ul li:last-child {
+        border-bottom: none;
+    }
+</style>
 {% endblock %}
 
 {% block content %}
 
 <div class="perfil">
     {% if pessoal.imagem %}
-        <img src="{{ pessoal.imagem.url }}" width="200" alt="Foto do Aluno">
+    <img src="{{ pessoal.imagem.url }}" width="200" alt="Foto do Aluno">
     {% else %}
-        <img src="https://via.placeholder.com/180" width="200" alt="Foto do Aluno">
+    <img src="https://via.placeholder.com/180" width="200" alt="Foto do Aluno">
     {% endif %}
     <h2>{{pessoal.nome}}</h2>
     <p>{{pessoal.subtitulo}}</p>
@@ -145,9 +154,9 @@ footer {
     <h3>⤷ Cursos e Certificados</h3>
     <ul>
         {% for curso in certificados%}
-            <li>{{curso.descricao}}</li>
+        <li>{{curso.descricao}}</li>
         {% empty %}
-            <li>Nenhum curso cadastrado.</li>
+        <li>Nenhum curso cadastrado.</li>
         {% endfor %}
     </ul>
 </div>
@@ -193,14 +202,16 @@ footer {
         border-radius: 8px;
     ">
         <h3 style="margin-bottom: 20px; color: #2c3e50;">Login para Editar</h3>
-    <div style="margin-bottom: 15px;">
-        <label>Username:</label><br>
-        <input type="text" id="login-username" autocomplete="off" style="width: 100%; padding: 8px; margin-top: 5px;">
-    </div>
-    <div style="margin-bottom: 15px;">
-        <label>Password:</label><br>
-        <input type="password" id="login-password" autocomplete="off" style="width: 100%; padding: 8px; margin-top: 5px;">
-    </div>
+        <div style="margin-bottom: 15px;">
+            <label>Username:</label><br>
+            <input type="text" id="login-username" autocomplete="off"
+                style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label>Password:</label><br>
+            <input type="password" id="login-password" autocomplete="off"
+                style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
         <p id="login-erro" style="color: red; display: none;"></p>
         <button id="btn-login" style="
             background-color: #27ae60;
@@ -306,187 +317,180 @@ footer {
 </div>
 
 <script>
-const btnEditar = document.getElementById('btn-editar');
-const modalLogin = document.getElementById('modal-login');
-const modalEditar = document.getElementById('modal-editar');
-const btnLogin = document.getElementById('btn-login');
-const btnCancelarLogin = document.getElementById('btn-cancelar-login');
-const btnSalvar = document.getElementById('btn-salvar');
-const btnCancelarEditar = document.getElementById('btn-cancelar-editar');
-const loginErro = document.getElementById('login-erro');
-const editSucesso = document.getElementById('edit-sucesso');
-const editErro = document.getElementById('edit-erro');
+    const btnEditar = document.getElementById('btn-editar');
+    const modalLogin = document.getElementById('modal-login');
+    const modalEditar = document.getElementById('modal-editar');
+    const btnLogin = document.getElementById('btn-login');
+    const btnCancelarLogin = document.getElementById('btn-cancelar-login');
+    const btnSalvar = document.getElementById('btn-salvar');
+    const btnCancelarEditar = document.getElementById('btn-cancelar-editar');
+    const loginErro = document.getElementById('login-erro');
+    const editSucesso = document.getElementById('edit-sucesso');
+    const editErro = document.getElementById('edit-erro');
 
-const API_BASE = 'http://127.0.0.1:8000';
+    const API_BASE = 'http://127.0.0.1:8000';
 
-btnEditar.addEventListener('click', function() {
-    const token = localStorage.getItem('access_token');
-    if (token) {
-        carregarPerfil(token);
-    } else {
-        modalLogin.style.display = 'block';
-    }
-});
-
-btnLogin.addEventListener('click', function() {
-    const username = document.getElementById('login-username').value;
-    const password = document.getElementById('login-password').value;
-    loginErro.style.display = 'none';
-
-    fetch(API_BASE + '/api/token/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: username, password: password }),
-    })
-    .then(function(response) {
-        if (!response.ok) throw new Error('Username ou senha incorretos');
-        return response.json();
-    })
-    .then(function(data) {
-        localStorage.setItem('access_token', data.access);
-        localStorage.setItem('refresh_token', data.refresh);
-        modalLogin.style.display = 'none';
-        carregarPerfil(data.access);
-    })
-    .catch(function(erro) {
-        loginErro.textContent = erro.message;
-        loginErro.style.display = 'block';
-    });
-});
-
-function carregarPerfil(token) {
-    fetch(API_BASE + '/api/perfil/', {
-        method: 'GET',
-        headers: { 'Authorization': 'Bearer ' + token },
-    })
-    .then(function(response) {
-        if (!response.ok) {
-            localStorage.removeItem('access_token');
-            localStorage.removeItem('refresh_token');
+    btnEditar.addEventListener('click', function () {
+        const token = localStorage.getItem('access_token');
+        if (token) {
+            carregarPerfil(token);
+        } else {
             modalLogin.style.display = 'block';
-            throw new Error('Token expirado. Faça login novamente.');
         }
-        return response.json();
-    })
-    .then(function(perfil) {
-        document.getElementById('edit-nome').value = perfil.nome || '';
-        document.getElementById('edit-subtitulo').value = perfil.subtitulo || '';
-        document.getElementById('edit-descricao').value = perfil.descricao || '';
-        document.getElementById('edit-curso').value = perfil.curso || '';
-        document.getElementById('edit-periodo').value = perfil.periodo || '';
-        document.getElementById('edit-email').value = perfil.email || '';
-        document.getElementById('edit-git').value = perfil.git || '';
-        document.getElementById('edit-linked').value = perfil.linked || '';
-        document.getElementById('edit-url_imagem').value = perfil.url_imagem || '';
-
-        editSucesso.style.display = 'none';
-        editErro.style.display = 'none';
-        modalEditar.style.display = 'block';
-    })
-    .catch(function(erro) { console.error(erro); });
-}
-
-btnSalvar.addEventListener('click', function() {
-    const token = localStorage.getItem('access_token');
-
-    const formData = new FormData();
-    formData.append('nome', document.getElementById('edit-nome').value);
-    formData.append('descricao', document.getElementById('edit-descricao').value);
-    formData.append('curso', document.getElementById('edit-curso').value);
-    formData.append('periodo', document.getElementById('edit-periodo').value);
-    formData.append('email', document.getElementById('edit-email').value);
-    formData.append('git', document.getElementById('edit-git').value);
-    formData.append('linked', document.getElementById('edit-linked').value);
-    formData.append('url_imagem', document.getElementById('edit-url_imagem').value);
-    formData.append('subtitulo', document.getElementById('edit-subtitulo').value);
-
-    const imagemInput = document.getElementById('edit-imagem');
-    if (imagemInput.files.length > 0) {
-        formData.append('imagem', imagemInput.files[0]);
-    }
-
-    fetch(API_BASE + '/api/perfil/', {
-        method: 'PATCH',
-        headers: {
-            'Authorization': 'Bearer ' + token,
-        },
-        body: formData,
-    })
-    .then(function(response) {
-        if (!response.ok) {
-            return response.json().then(function(erros) {
-                throw new Error(JSON.stringify(erros));
-            });
-        }
-        return response.json();
-    })
-    .then(function(perfil) {
-        editSucesso.style.display = 'block';
-        editErro.style.display = 'none';
-        atualizarPagina(perfil);
-        setTimeout(function() {
-            location.reload();
-        }, 1000); //
-    })
-    .catch(function(erro) {
-        editErro.textContent = 'Erro ao salvar: ' + erro.message;
-        editErro.style.display = 'block';
-        editSucesso.style.display = 'none';
     });
-});
 
-function atualizarPagina(perfil) {
-    // Atualiza o nome no header
-    const headerH1 = document.querySelector('header h1');
-    if (headerH1) headerH1.textContent = perfil.nome;
+    btnLogin.addEventListener('click', function () {
+        const username = document.getElementById('login-username').value;
+        const password = document.getElementById('login-password').value;
+        loginErro.style.display = 'none';
 
-    // Atualiza nome no cabeçalho do perfil
-    const perfilNome = document.querySelector('.perfil h2');
-    if (perfilNome) perfilNome.textContent = perfil.nome;
+        fetch(API_BASE + '/api/token/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: username, password: password }),
+        })
+            .then(function (response) {
+                if (!response.ok) throw new Error('Username ou senha incorretos');
+                return response.json();
+            })
+            .then(function (data) {
+                localStorage.setItem('access_token', data.access);
+                localStorage.setItem('refresh_token', data.refresh);
+                modalLogin.style.display = 'none';
+                carregarPerfil(data.access);
+            })
+            .catch(function (erro) {
+                loginErro.textContent = erro.message;
+                loginErro.style.display = 'block';
+            });
+    });
 
-    // Atualiza subtitulo abaixo da foto
-    const perfilSubtitulo = document.querySelector('.perfil p');
-    if (perfilSubtitulo) perfilSubtitulo.textContent = perfil.subtitulo;
+    function carregarPerfil(token) {
+        fetch(API_BASE + '/api/perfil/', {
+            method: 'GET',
+            headers: { 'Authorization': 'Bearer ' + token },
+        })
+            .then(function (response) {
+                if (!response.ok) {
+                    localStorage.removeItem('access_token');
+                    localStorage.removeItem('refresh_token');
+                    modalLogin.style.display = 'block';
+                    throw new Error('Token expirado. Faça login novamente.');
+                }
+                return response.json();
+            })
+            .then(function (perfil) {
+                document.getElementById('edit-nome').value = perfil.nome || '';
+                document.getElementById('edit-subtitulo').value = perfil.subtitulo || '';
+                document.getElementById('edit-descricao').value = perfil.descricao || '';
+                document.getElementById('edit-curso').value = perfil.curso || '';
+                document.getElementById('edit-periodo').value = perfil.periodo || '';
+                document.getElementById('edit-email').value = perfil.email || '';
+                document.getElementById('edit-git').value = perfil.git || '';
+                document.getElementById('edit-linked').value = perfil.linked || '';
+                document.getElementById('edit-url_imagem').value = perfil.url_imagem || '';
 
-    // Atualiza descrição
-    const sobreSections = document.querySelectorAll('.sobre');
-    if (sobreSections[0]) {
-        const p = sobreSections[0].querySelector('p');
-        if (p) p.textContent = perfil.descricao;
+                editSucesso.style.display = 'none';
+                editErro.style.display = 'none';
+                modalEditar.style.display = 'block';
+            })
+            .catch(function (erro) { console.error(erro); });
     }
 
-    // Atualiza lista de dados pessoais
-    if (sobreSections[1]) {
-        const ul = sobreSections[1].querySelector('ul');
-        if (ul) {
-            ul.innerHTML =
-                '<li><strong>Nome:</strong> ' + perfil.nome + '</li>' +
-                '<li><strong>Curso:</strong> ' + perfil.curso + '</li>' +
-                '<li><strong>Período:</strong> ' + perfil.periodo + '</li>' +
-                '<li><strong>E-mail:</strong> ' + perfil.email + '</li>' +
-                '<li><strong>LinkedIn:</strong> <a href="' + perfil.linked + '">' + perfil.linked + '</a></li>' +
-                '<li><strong>GitHub:</strong> <a href="' + perfil.git + '">' + perfil.git + '</a></li>';
+    btnSalvar.addEventListener('click', function () {
+        const token = localStorage.getItem('access_token');
+
+        const formData = new FormData();
+        formData.append('nome', document.getElementById('edit-nome').value);
+        formData.append('descricao', document.getElementById('edit-descricao').value);
+        formData.append('curso', document.getElementById('edit-curso').value);
+        formData.append('periodo', document.getElementById('edit-periodo').value);
+        formData.append('email', document.getElementById('edit-email').value);
+        formData.append('git', document.getElementById('edit-git').value);
+        formData.append('linked', document.getElementById('edit-linked').value);
+        formData.append('url_imagem', document.getElementById('edit-url_imagem').value);
+        formData.append('subtitulo', document.getElementById('edit-subtitulo').value);
+
+        const imagemInput = document.getElementById('edit-imagem');
+        if (imagemInput.files.length > 0) {
+            formData.append('imagem', imagemInput.files[0]);
         }
+
+        fetch(API_BASE + '/api/perfil/', {
+            method: 'PATCH',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+            },
+            body: formData,
+        })
+            .then(function (response) {
+                if (!response.ok) {
+                    return response.json().then(function (erros) {
+                        throw new Error(JSON.stringify(erros));
+                    });
+                }
+                return response.json();
+            })
+            .then(function (perfil) {
+                editSucesso.style.display = 'block';
+                editErro.style.display = 'none';
+                atualizarPagina(perfil);
+                setTimeout(function () {
+                    location.reload();
+                }, 1000);
+            })
+            .catch(function (erro) {
+                editErro.textContent = 'Erro ao salvar: ' + erro.message;
+                editErro.style.display = 'block';
+                editSucesso.style.display = 'none';
+            });
+    });
+
+    function atualizarPagina(perfil) {
+        const headerH1 = document.querySelector('header h1');
+        if (headerH1) headerH1.textContent = perfil.nome;
+
+        const perfilNome = document.querySelector('.perfil h2');
+        if (perfilNome) perfilNome.textContent = perfil.nome;
+
+        const perfilSubtitulo = document.querySelector('.perfil p');
+        if (perfilSubtitulo) perfilSubtitulo.textContent = perfil.subtitulo;
+
+        const sobreSections = document.querySelectorAll('.sobre');
+        if (sobreSections[0]) {
+            const p = sobreSections[0].querySelector('p');
+            if (p) p.textContent = perfil.descricao;
+        }
+
+        if (sobreSections[1]) {
+            const ul = sobreSections[1].querySelector('ul');
+            if (ul) {
+                ul.innerHTML =
+                    '<li><strong>Nome:</strong> ' + perfil.nome + '</li>' +
+                    '<li><strong>Curso:</strong> ' + perfil.curso + '</li>' +
+                    '<li><strong>Período:</strong> ' + perfil.periodo + '</li>' +
+                    '<li><strong>E-mail:</strong> ' + perfil.email + '</li>' +
+                    '<li><strong>LinkedIn:</strong> <a href="' + perfil.linked + '">' + perfil.linked + '</a></li>' +
+                    '<li><strong>GitHub:</strong> <a href="' + perfil.git + '">' + perfil.git + '</a></li>';
+            }
+        }
+
+        const perfilImg = document.querySelector('.perfil img');
+        if (perfilImg && perfil.imagem) perfilImg.src = perfil.imagem;
     }
 
-    // Atualiza imagem
-    const perfilImg = document.querySelector('.perfil img');
-    if (perfilImg && perfil.imagem) perfilImg.src = perfil.imagem;
-}
+    btnCancelarLogin.addEventListener('click', function () {
+        modalLogin.style.display = 'none';
+    });
 
-btnCancelarLogin.addEventListener('click', function() {
-    modalLogin.style.display = 'none';
-});
+    btnCancelarEditar.addEventListener('click', function () {
+        modalEditar.style.display = 'none';
+    });
 
-btnCancelarEditar.addEventListener('click', function() {
-    modalEditar.style.display = 'none';
-});
-
-document.getElementById('btn-sair').addEventListener('click', function() {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('refresh_token');
-    alert('Você saiu!');
-});
-
+    document.getElementById('btn-sair').addEventListener('click', function () {
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+        alert('Você saiu!');
+    });
 </script>
 {% endblock %}
