@@ -57,14 +57,16 @@ ROOT_URLCONF = "portfolio_pessoal.urls"
 
 TEMPLATES = [
     {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
-        "APP_DIRS": True,
-        "OPTIONS": {
-            "context_processors": [
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                'core.context_processors.notificacao_ms',
             ],
         },
     },
@@ -124,8 +126,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # ─── Configuracoes do Django REST Framework ───
 
-  
-
 REST_FRAMEWORK  =  {
 
 # Define que, por padrao, todas as views exigem autenticacao
@@ -152,8 +152,6 @@ REST_FRAMEWORK  =  {
 
 # ─── Configuracoes do SimpleJWT ───
 
-  
-
 from datetime import timedelta
 
   
@@ -165,3 +163,7 @@ SIMPLE_JWT  =  {
 'REFRESH_TOKEN_LIFETIME':  timedelta(days=1),  # Token de refresh vale 1 dia
 
 }
+
+# ─── Microserviço de Notificação ───
+NOTIFICACAO_MS_URL = 'http://127.0.0.1:8001'
+NOTIFICACAO_MS_API_KEY = '335519b61002e7f2'
